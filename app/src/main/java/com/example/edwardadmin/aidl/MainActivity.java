@@ -79,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
     private void bindService() {
         Intent serviceIntent = new Intent();
         serviceIntent.setAction(BIND_SERVICE_ACTION);
-        //serviceIntent.setComponent(new ComponentName("com.example.edwardadmin.aidlserver", "com.example.edwardadmin.service.RmoteService"));
+        		// Android 5.0 以上显示绑定服务
+        serviceIntent.setComponent(new ComponentName("com.example.edwardadmin.aidlserver", "com.example.edwardadmin.service.RmoteService"));
         final Intent eintent = new Intent(achieveExplicitFromImplicitIntent(this, serviceIntent));
         bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE);
         Log.d(TAG, "bindService");
